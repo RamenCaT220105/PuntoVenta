@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('op_custordenc', function (Blueprint $table) {
+            $table->char('CUSTIDSS', 20)->nullable();
+            $table->decimal('NUMORDCOM', 18, 0)->nullable();
+            $table->char('INVTIDSKU', 20)->nullable();
+            $table->char('DESCRP', 50)->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('op_custordenc');
+    }
+};
